@@ -11,10 +11,9 @@ namespace XadrezInConsole
     {
         static void Main(string[] args)
         {
-            Posicao p;
-            p = new Posicao(2, 4);
+            Tabuleiroo tab = new Tabuleiroo(6,7);
 
-            Console.WriteLine(p);
+
             Console.ReadLine();
 
         }
