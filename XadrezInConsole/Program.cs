@@ -11,10 +11,12 @@ namespace XadrezInConsole
     {
         static void Main(string[] args)
         {
-            Tabuleiroo tab = new Tabuleiroo(6,7);
+            Tabuleiroo tab = new Tabuleiroo(8,8);
+
+            Tela.imprimirTabuleiro(tab);
 
 
-            Console.ReadLine();
+            Console.Read();
 
         }
     }
