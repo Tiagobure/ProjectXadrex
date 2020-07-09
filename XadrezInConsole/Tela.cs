@@ -6,10 +6,45 @@ using System.Threading.Tasks;
 using Tabuleiro;
 using Xadrez;
 
+
 namespace XadrezInConsole
 {
     class Tela
     {
+
+        public static void ImprimirPartida(PartidaDeXadrez par)
+        {
+            imprimirTabuleiro(par.Tab);
+            Console.WriteLine("------------------");
+            Console.WriteLine();
+            ImprimirPecasCapituradas(par);
+            Console.WriteLine();
+            Console.WriteLine("Turno " + par.Turno);
+            Console.WriteLine("Aguardando jogada: " + par.JogadorAtual);
+        }
+
+        public static void ImprimirPecasCapituradas(PartidaDeXadrez par)
+        {
+            Console.WriteLine("Peças capituradas:");
+            Console.Write("Brancas:");
+            ImprimirConjunto(par.PecasCapituradas(Cor.branca));
+            Console.Write("Pretas:");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            ImprimirConjunto(par.PecasCapituradas(Cor.preta));
+            Console.ForegroundColor = aux;
+
+
+        }
+        public static void ImprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach(Peca x in conjunto)
+            {
+                Console.Write(x + " ");
+            }
+            Console.WriteLine("]");
+        }
         public static void imprimirTabuleiro(Tabuleiroo tab)
         {
             for (int i = 0; i < tab.linhas; i++)
