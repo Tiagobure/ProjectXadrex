@@ -23,7 +23,7 @@ namespace Tabuleiro
 
         public Peca Peca(Posicao pos)
         {
-            return Pecas[pos.Linha, pos.Coluna];
+            return Pecas[pos.Linha , pos.Coluna ];
         }
 
         public bool Existepeca(Posicao pos)
