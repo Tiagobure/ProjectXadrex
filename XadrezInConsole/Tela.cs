@@ -20,13 +20,24 @@ namespace XadrezInConsole
             ImprimirPecasCapituradas(par);
             Console.WriteLine();
             Console.WriteLine("Turno " + par.Turno);
-            Console.WriteLine("Aguardando jogada: " + par.JogadorAtual);
-            if(par.Xeque)
+            if (!par.Terminada)
             {
-                Console.WriteLine("XEQUE!");
-                
+                Console.WriteLine("Aguardando jogada: " + par.JogadorAtual);
+
+                if (par.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                    Console.WriteLine();
+
+                }
             }
-            Console.WriteLine();
+            else if(par.Terminada)
+            {
+                Console.WriteLine("XEQUE MATE!!");
+                Console.WriteLine("Vencedor: " + par.JogadorAtual);
+            }
+
+
         }
 
         public static void ImprimirPecasCapituradas(PartidaDeXadrez par)
@@ -45,7 +56,7 @@ namespace XadrezInConsole
         public static void ImprimirConjunto(HashSet<Peca> conjunto)
         {
             Console.Write("[");
-            foreach(Peca x in conjunto)
+            foreach (Peca x in conjunto)
             {
                 Console.Write(x + " ");
             }
@@ -69,13 +80,13 @@ namespace XadrezInConsole
         {
             ConsoleColor FundoOriginal = Console.BackgroundColor;
             ConsoleColor FundoAlterado = ConsoleColor.DarkRed;
-             
+
             for (int i = 0; i < tab.linhas; i++)
             {
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if(posicoesPossiveis[i,j] == true)
+                    if (posicoesPossiveis[i, j] == true)
                     {
                         Console.BackgroundColor = FundoAlterado;
                     }
