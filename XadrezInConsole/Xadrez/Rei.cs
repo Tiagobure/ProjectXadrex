@@ -85,7 +85,7 @@ namespace Xadrez
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-            //#jogada especial
+            //#jogadaespecial
             if (QteMovimentos == 0 && !partida.Xeque)
             {
                 //reoque pequeno
@@ -100,7 +100,7 @@ namespace Xadrez
 
                     }
                 }
-                //## jogada especisl Rooque Grande
+                //#jogadaespecisl Rooque Grande
                 Posicao PosTorre2 = new Posicao(Posicao.Linha, Posicao.Coluna - 4);
                 if (TestTorreParaRoque(PosTorre2))
                 {
