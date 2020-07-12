@@ -10,6 +10,7 @@ namespace Xadrez
         {
             Partida = partida;
         }
+
         public override string ToString()
         {
 
@@ -21,10 +22,15 @@ namespace Xadrez
             Peca p = Tab.Peca(pos);
             return p != null && p.Cor != Cor;
         }
+
+
         private bool Livre(Posicao pos)
         {
             return Tab.Peca(pos) == null;
         }
+
+
+
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tab.linhas, Tab.colunas];
@@ -54,7 +60,7 @@ namespace Xadrez
                     mat[pos.Linha, pos.Coluna] = true;
                 }
 
-                //#jogadaespecial passant
+                //#jogadaespecial en passant
                 if(Posicao.Linha == 3)
                 {
                     Posicao Esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
